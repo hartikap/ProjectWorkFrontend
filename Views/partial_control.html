@@ -1,0 +1,36 @@
+<form class="inputwindow">
+
+    <h1> Voltage Controller </h1>
+
+
+    <p>You can control the output voltage by left-clicking the knob below, holding and moving your mouse up and down</p>
+
+
+
+    <x-knobjs-knob id="knob"></x-knobjs-knob>
+   
+   
+    
+</form>  
+   
+<br>
+
+
+<form class="cv">
+   
+    <div> Output voltage: {{outputVoltage}} </div>
+  
+    <br>
+  
+    <div> Input voltage: {{measuredVoltage}} </div>
+    <br>
+    <br>
+    <p>  The output voltage is sent to the Arduino Uno (to drive a led). Communication is done via a websocket. Input voltage is measured from Arduino Uno communicating with Raspberry Pi 2 (via USB serial port). 
+       See the source codes:
+        <br>
+        <a href="https://www.github.com/hartikap/VoltageController" target="_blank" >github.com/hartikap/VoltageController</a>
+        
+    
+    </p>
+  
+</form>

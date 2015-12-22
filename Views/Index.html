@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app='main_module'>
+
+<head>
+
+    <title> Modular Synthesizer Controller </title>
+    
+    
+    
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="../css/styles.css" type="text/css"> 
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    </head>
+
+    <body class="cvmoduleview">
+   
+    <div ng-view></div>
+                  
+
+        <script src="/lib/jquery-2.1.4.min.js"></script>
+        <script src="/lib/angular.min.js"></script>
+        <script src="/lib/angular-resource.min.js"></script>
+        <script src="/lib/angular-route.min.js"></script>
+        <script src="/Modules/mainModule.js"></script>
+        <script src="/controllers/loginController.js"></script>
+        <script src="/factories/factory.js"></script>
+        <script src="/controllers/mainController.js"></script>
+
+        
+        <script type="text/javascript" src="http://www.russellmcc.com/knobjs/knob.min.js"></script>
+        <script src="../node_modules/socket.io-client/socket.io.js"></script>
+        
+    </body>
+
+</html>
