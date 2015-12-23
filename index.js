@@ -3,7 +3,7 @@ var app = express();
 var path = require("path");
 var http = require('http').Server(app);
 var used_port = 8081;
-
+var users = require('./database/users');
 
 app.use('/',express.static(path.join(__dirname, 'Views')));
 app.use('/css',express.static(path.join(__dirname, 'css')));
@@ -12,7 +12,10 @@ app.use('/node_modules',express.static(path.join(__dirname, 'node_modules')));
 app.use('/lib',express.static(path.join(__dirname, 'lib')));
 app.use('/Modules',express.static(path.join(__dirname, 'Modules')));
 app.use('/factories',express.static(path.join(__dirname, 'factories')));
+app.use('/database',express.static(path.join(__dirname, 'database')));
 
+
+app.use('/users', users);
 
 // ROUTERS---------------------------------------------
 
