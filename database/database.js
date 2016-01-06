@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/8081/cvdb', function(err) {
+mongoose.connect('mongodb://localhost/27017/cvdb', function(err) {
     if(err) {
         console.log('connection error', err.message);
     } else {

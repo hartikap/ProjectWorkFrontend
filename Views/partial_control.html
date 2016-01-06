@@ -7,7 +7,8 @@
 
 
 
-    <x-knobjs-knob id="knob"></x-knobjs-knob>
+    <x-knobjs-knob id="knob1"></x-knobjs-knob>
+    <x-knobjs-knob id="knob2"></x-knobjs-knob>
    
    
     
@@ -24,13 +25,14 @@
   
     <div> Input voltage: {{measuredVoltage}} </div>
     <br>
-    <br>
-    <p>  The output voltage is sent to the Arduino Uno (to drive a led). Communication is done via a websocket. Input voltage is measured from Arduino Uno communicating with Raspberry Pi 2 (via USB serial port). 
-       See the source codes:
-        <br>
-        <a href="https://www.github.com/hartikap/VoltageController" target="_blank" >github.com/hartikap/VoltageController</a>
+ 
         
+    <div ng-repeat="voltage in outputVoltages"> 
     
-    </p>
+        <p>{{voltage}}</p>
+    </div>
+    
+
+    
   
 </form>
