@@ -27,5 +27,5 @@ var presetSchema = new mongoose.Schema({
 });
 
 
-module.exports = mongoose.model('users', userSchema);
-module.exports = mongoose.model('presets', presetSchema);
+exports.users = mongoose.model('users', userSchema);
+exports.presets = mongoose.model('presets', presetSchema);

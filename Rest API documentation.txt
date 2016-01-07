@@ -1,0 +1,34 @@
+GET/presets/:id - return a list of presets for user
+POST/presets/:id - create a new preset
+GET/presets/user/:id - return individual preset
+PUT/presets/:id - update a preset
+DELETE/presets/:id - delete a preset
+
+
+
+
+
+
+
+
+
+
+
+
+var userSchema = new mongoose.Schema({
+  username: String,
+  password: String,
+  presets: [{type:mongoose.Schema.Types.ObjectId,ref:'Person'}],
+});
+
+var presetSchema = new mongoose.Schema({
+    presetname: String,
+    cv1: Number,
+    cv2: Number,
+    cv3: Number,
+    cv4: Number,
+    cv5: Number,
+    cv6: Number,
+    cv7: Number,
+    cv8: Number,
+});
