@@ -80,6 +80,7 @@ main_module.controller('mainController', function($scope, factory) {
     });
     
  
+    
     $scope.saveClicked = function () {
         
         var presetObject = {
@@ -106,5 +107,13 @@ main_module.controller('mainController', function($scope, factory) {
     
     }
 
+    
+    $scope.presetButtonClicked = function (cv) {
+        
+        console.log(cv);
+        
+        
+    }
+    
         
 });

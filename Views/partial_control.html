@@ -5,7 +5,7 @@
    
     <br>
     
-    <table>
+    <table align="center">
     
         <tr>
             <td> <x-knobjs-knob id="knob1"></x-knobjs-knob> </td>
@@ -30,18 +30,34 @@
     
     </table>
     
-    <!--
-    <label for="knob1">{{outputVoltages[0]}}</label>
-    <x-knobjs-knob id="knob1"></x-knobjs-knob>
-    <label for="knob2">{{outputVoltages[1]}}</label>
-    <x-knobjs-knob id="knob2"></x-knobjs-knob>
-    <x-knobjs-knob id="knob3"></x-knobjs-knob>
-    <x-knobjs-knob id="knob4"></x-knobjs-knob>
-    <x-knobjs-knob id="knob5"></x-knobjs-knob>
-    <x-knobjs-knob id="knob6"></x-knobjs-knob>
-    <x-knobjs-knob id="knob7"></x-knobjs-knob>
-    <x-knobjs-knob id="knob8"></x-knobjs-knob>
-   -->
+    
+    <br>
+    
+    <h3> Load Preset: </h3>
+    <div class="btn-toolbar" role="toolbar" aria-label="presetbar">
+        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(1)">1</button>
+        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(2)">2</button>
+        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(3)">3</button>
+        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(4)">4</button>
+        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(5)">5</button>
+        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(6)">6</button>
+        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(7)">7</button>
+        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(8)">8</button>
+    </div>
+    
+    <br>
+    
+    <select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+    </select>
+    <button type="button" class="btn btn-info" ng-click="presetSaveButtonClicked(value)">Save</button>
     
 </form>  
    
@@ -52,7 +68,10 @@
    
     <div> Current user: {{currentUserId}} </div>
   
+    
    
+    
+    
     
 
      <form>
