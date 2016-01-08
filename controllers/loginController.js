@@ -1,16 +1,21 @@
-main_module.controller('loginController', function($scope, factory, $location) {
+main_module.controller('loginController', function($scope, factory, $location, Flash) {
     
     $scope.loginClicked = function () {
-        
-        console.log("button pressed");
     
         var userinfo = {
-            username: $scope.inputName,
-            password: $scope.inputPassword,
+            username: $scope.user,
+            password: $scope.pass,
         }
         
-        factory.loginUser(userinfo);
-        $location.path('/control');
+        factory.loginUser(userinfo)
+            .then(function(data){
+                factory.currentUserId = data._id;
+            $location.path('/control');
+            }, function(data){
+                Flash.create('danger', 'Wrong user name or password given', 'custom-class'); 
+                console.log("wrong username or password");
+         });
+        
     
     };
     
@@ -23,8 +28,17 @@ main_module.controller('loginController', function($scope, factory, $location) {
             password: $scope.pass,
         }
         
-        factory.saveUser(userinfo);
-        $location.path('/control');
+        var response = factory.saveUser(userinfo);
+        
+            response.then(function(data){
+                Flash.create('success', 'New user added!', 'custom-class'); 
+                console.log("New user added");
+            },
+            function(data){
+                Flash.create('danger', 'Username already in use!', 'custom-class');
+                console.log("username already in use");
+        });
+        
     
     };
     

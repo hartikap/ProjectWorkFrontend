@@ -4,14 +4,22 @@ main_module.factory('factory', function($resource, $http) {
     
     factory.presets = [];
     
+    // Save new user to database (register)
     factory.saveUser = function (userinfo) {
-        return $http.post('presets', userinfo).success(function(data){
-            factory.presets.push(data); //add the new preset to the list of current users presets
-            console.log("Tallennettu presetti: "+ data._id);
-            factory.currentUserId = data._id;
-        }); 
+        return $http.post('presets/register', userinfo);
+        
         
     }
+    
+    
+    factory.loginUser = function (userinfo) {
+         return $http.post('presets/login', userinfo);
+         
+         
+        
+    }
+    
+    
     
     
     

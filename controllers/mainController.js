@@ -17,7 +17,13 @@ main_module.controller('mainController', function($scope, factory) {
     // Sends the voltage out
     var knob1 = document.getElementById("knob1");
     var knob2 = document.getElementById("knob2");
-    //knob1.onchange = emitVoltage();
+    var knob3 = document.getElementById("knob3");
+    var knob4 = document.getElementById("knob4");
+    var knob5 = document.getElementById("knob5");
+    var knob6 = document.getElementById("knob6");
+    var knob7 = document.getElementById("knob7");
+    var knob8 = document.getElementById("knob8");
+    
     knob1.onchange = function(){
         $scope.outputVoltages[0] = 5*(~~knob1.value)/100;
         $scope.$apply();
@@ -25,12 +31,46 @@ main_module.controller('mainController', function($scope, factory) {
         socket.emit('voltageOut', data);
     };
     knob2.onchange = function(){
-        //$scope.outputVoltage = 5*(~~knob2.value)/100;
         $scope.outputVoltages[1] = 5*(~~knob2.value)/100;
         $scope.$apply();
         var data = 'C' + (Math.round(knob2.value*2.55).toString());
         socket.emit('voltageOut', data);
-
+    };
+    knob3.onchange = function(){
+        $scope.outputVoltages[2] = 5*(~~knob3.value)/100;
+        $scope.$apply();
+        var data = 'C' + (Math.round(knob3.value*2.55).toString());
+        socket.emit('voltageOut', data);
+    };
+    knob4.onchange = function(){
+        $scope.outputVoltages[3] = 5*(~~knob4.value)/100;
+        $scope.$apply();
+        var data = 'C' + (Math.round(knob4.value*2.55).toString());
+        socket.emit('voltageOut', data);
+    };
+    knob5.onchange = function(){
+        $scope.outputVoltages[4] = 5*(~~knob5.value)/100;
+        $scope.$apply();
+        var data = 'C' + (Math.round(knob5.value*2.55).toString());
+        socket.emit('voltageOut', data);
+    };
+    knob6.onchange = function(){
+        $scope.outputVoltages[5] = 5*(~~knob6.value)/100;
+        $scope.$apply();
+        var data = 'C' + (Math.round(knob6.value*2.55).toString());
+        socket.emit('voltageOut', data);
+    };
+    knob7.onchange = function(){
+        $scope.outputVoltages[6] = 5*(~~knob7.value)/100;
+        $scope.$apply();
+        var data = 'C' + (Math.round(knob7.value*2.55).toString());
+        socket.emit('voltageOut', data);
+    };
+    knob8.onchange = function(){
+        $scope.outputVoltages[7] = 5*(~~knob8.value)/100;
+        $scope.$apply();
+        var data = 'C' + (Math.round(knob8.value*2.55).toString());
+        socket.emit('voltageOut', data);
     };
 
     

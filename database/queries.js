@@ -7,12 +7,40 @@ exports.saveNewUser = function (req,res) {
     var userTemp = new db.users(req.body);
     //Save it to database
     userTemp.save(function(err,userTemp){
-        if(err) {return next(err)}   
+        if(err) {res.status(500).send({status:err.message})}   
         res.json(userTemp);
     });
     
 };
     
+exports.loginUser = function (req,res) {
+    
+    var searchObject = {
+        username:req.body.username,
+        password:req.body.password
+    }
+    
+    db.users.findOne(searchObject,function(err,data){
+        
+        if(err){
+            
+            res.send(502,{status:err.message});
+            
+        }else{
+            console.log(data);
+            //=< 0 means wrong username or password
+            if(data){
+                res.send(200,{status:"Ok"});
+            }
+            else{
+                res.send(401,{status:"Wrong username or password"});
+            }
+            
+        }
+        
+    });
+    
+}
 
 
 // This function saves a new preset
@@ -38,12 +66,6 @@ exports.getPresetsByUsername = function (req,res) {
     db.presets.find({userid: req.body.userid}, function (err, data) {
         
         if(data){
-                console.log("aaafa");
-                console.log(data);
-                console.log("babab");
-                console.log("aaafa");
-                //console.log(data.presetarray);
-                console.log("aaafa");
                 res.send(data);
             }
             else{

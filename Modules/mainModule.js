@@ -1,4 +1,4 @@
-var main_module = angular.module('main_module', ['ngRoute', 'ngResource']);
+var main_module = angular.module('main_module', ['ngRoute', 'ngResource', 'flash']);
 
 main_module.config(function($routeProvider) {
     

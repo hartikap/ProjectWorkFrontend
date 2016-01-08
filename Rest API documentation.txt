@@ -17,10 +17,10 @@ DELETE/presets/:id - delete a preset
 
 
 var userSchema = new mongoose.Schema({
-  username: String,
+  username: {type:String, unique:true},
   password: String,
-  presets: [{type:mongoose.Schema.Types.ObjectId,ref:'Person'}],
 });
+
 
 var presetSchema = new mongoose.Schema({
     presetname: String,
@@ -32,5 +32,5 @@ var presetSchema = new mongoose.Schema({
     cv6: Number,
     cv7: Number,
     cv8: Number,
-    username: [{type:mongoose.Schema.Types.ObjectId,ref:'userSchema'}],
+    userid: {type:mongoose.Schema.ObjectId,ref:'userSchema'},
 });

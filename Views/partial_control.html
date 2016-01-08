@@ -1,16 +1,47 @@
-<form class="inputwindow">
+<form class="controllerwindow">
 
     <h1> Voltage Controller </h1>
 
-
-    <p>You can control the output voltage by left-clicking the knob below, holding and moving your mouse up and down</p>
-
-
-
+   
+    <br>
+    
+    <table>
+    
+        <tr>
+            <td> <x-knobjs-knob id="knob1"></x-knobjs-knob> </td>
+            <td> <x-knobjs-knob id="knob2"></x-knobjs-knob> </td>
+            <td> <x-knobjs-knob id="knob3"></x-knobjs-knob> </td>
+            <td> <x-knobjs-knob id="knob4"></x-knobjs-knob> </td>
+            <td> <x-knobjs-knob id="knob5"></x-knobjs-knob> </td>
+            <td> <x-knobjs-knob id="knob6"></x-knobjs-knob> </td>
+            <td> <x-knobjs-knob id="knob7"></x-knobjs-knob> </td>
+            <td> <x-knobjs-knob id="knob8"></x-knobjs-knob> </td>
+        </tr>
+        <tr>
+            <td> {{outputVoltages[0]}} </td>
+            <td> {{outputVoltages[1]}} </td>
+            <td> {{outputVoltages[2]}} </td>
+            <td> {{outputVoltages[3]}} </td>
+            <td> {{outputVoltages[4]}} </td>
+            <td> {{outputVoltages[5]}} </td>
+            <td> {{outputVoltages[6]}} </td>
+            <td> {{outputVoltages[7]}} </td>
+        </tr>
+    
+    </table>
+    
+    <!--
+    <label for="knob1">{{outputVoltages[0]}}</label>
     <x-knobjs-knob id="knob1"></x-knobjs-knob>
+    <label for="knob2">{{outputVoltages[1]}}</label>
     <x-knobjs-knob id="knob2"></x-knobjs-knob>
-   
-   
+    <x-knobjs-knob id="knob3"></x-knobjs-knob>
+    <x-knobjs-knob id="knob4"></x-knobjs-knob>
+    <x-knobjs-knob id="knob5"></x-knobjs-knob>
+    <x-knobjs-knob id="knob6"></x-knobjs-knob>
+    <x-knobjs-knob id="knob7"></x-knobjs-knob>
+    <x-knobjs-knob id="knob8"></x-knobjs-knob>
+   -->
     
 </form>  
    
@@ -21,16 +52,7 @@
    
     <div> Current user: {{currentUserId}} </div>
   
-    <br>
-  
-    <div> Input voltage: {{measuredVoltage}} </div>
-    <br>
- 
-        
-    <div ng-repeat="voltage in outputVoltages track by $index"> 
-    
-        <p>{{voltage}}</p>
-    </div>
+   
     
 
      <form>

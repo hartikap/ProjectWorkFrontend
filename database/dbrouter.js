@@ -41,9 +41,13 @@ router.post('/', function(req,res,next) {
 // USERS-----------------------------------------------------
 
 // Router for saving new user
-router.post('/users/:username', function(req,res,next) {
-    query.saveNewUser(req,res,next);
-    
+router.post('/register/', function(req,res) {
+    query.saveNewUser(req,res); 
+});
+
+// Router for saving new user
+router.post('/login/', function(req,res) {
+    query.loginUser(req,res); 
 });
 
 
