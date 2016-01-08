@@ -2,8 +2,15 @@ var express = require('express');
 var app = express();
 var path = require("path");
 var http = require('http').Server(app);
+var bodyParser = require("body-parser");
 var used_port = 8081;
 var dbrouter = require('./database/dbrouter');
+
+//Bodyparser json() middleware parses the json object
+//from HTTP POST request
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+
 
 app.use('/',express.static(path.join(__dirname, 'Views')));
 app.use('/css',express.static(path.join(__dirname, 'css')));

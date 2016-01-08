@@ -1,62 +1,78 @@
 var db = require('./database');
 
+
+// Saves user to the database (when new user registers)
 exports.saveNewUser = function (req,res) {
     
     var userTemp = new db.users(req.body);
     //Save it to database
-    personTemp.save(function(err,ok){
-        
-        db.users.update({username:req.session.kayttaja},
-                          {$push:{'friends':personTemp._id}},
-                          function(err,model){
-            
-            //console.log("SEND REDIRECT!!!!!");
-            //Make a redirect to root context
-            //res.redirect(301,'/persons.html');
-            res.send("Added stuff");
-        });
-     
+    userTemp.save(function(err,userTemp){
+        if(err) {return next(err)}   
+        res.json(userTemp);
     });
     
-}
+};
+    
 
+
+// This function saves a new preset
 exports.saveNewPreset = function (req,res) {
     
-    var post = new db.presets(req.body);
+    console.log(req.body);
 
-    post.save(function(err, post){
+    
+    var preset = new db.presets(req.body);
+
+    preset.save(function(err, preset){
         if(err){ return next(err); }
 
-    res.json(post);
+    res.json(preset);
     });
     
 };
 
-// This function finds all presets (at the moment all the presets)
+// This function finds all presets for user
 exports.getPresetsByUsername = function (req,res) {
     
-    /*db.presets.find({''}, function(err,presets){
-        if(err){return next(err); }
-        res.json(presets);
+
+    db.presets.find({userid: req.body.userid}, function (err, data) {
         
-    });*/
-    
-    // MIETI TÄMÄ LOPPUUN!!!
-    db.presets.findOne({username:req.uid}).
-        populate('presetarray').exec(function(err,data){
-            
-            if(data){
-                res.send(data.presetarray);
+        if(data){
+                console.log("aaafa");
+                console.log(data);
+                console.log("babab");
+                console.log("aaafa");
+                //console.log(data.presetarray);
+                console.log("aaafa");
+                res.send(data);
             }
             else{
                 
                 res.redirect('/');
             }
         
-        });
+    });
     
-    
-    console.log("getPresetsByUsername requested");
+/*
+    db.presets.findOne({userid:req.body.userid})
+        .populate('useridk')
+        .exec(function(err,data){
+            
+            if(data){
+                console.log("aaafa");
+                console.log(data);
+                console.log("babab");
+                console.log("aaafa");
+                //console.log(data.presetarray);
+                console.log("aaafa");
+                res.send(data);
+            }
+            else{
+                
+                res.redirect('/');
+            }
+        
+        });*/
     
 }
 

@@ -8,6 +8,9 @@ main_module.controller('mainController', function($scope, factory) {
     $scope.outputVoltage = 2.5;
     $scope.username = factory.username;
     $scope.outputVoltages = [];
+    $scope.currentUserId = factory.currentUserId;
+    
+    
     
     for (i=0; i<8; i++) {$scope.outputVoltages[i]=0};
     
@@ -40,7 +43,7 @@ main_module.controller('mainController', function($scope, factory) {
     $scope.saveClicked = function () {
         
         var presetObject = {
-            presetname: "Testipreset",
+            presetname: $scope.presetname,
             cv1: $scope.outputVoltages[0],
             cv2: $scope.outputVoltages[1],
             cv3: $scope.outputVoltages[2],
@@ -48,11 +51,19 @@ main_module.controller('mainController', function($scope, factory) {
             cv5: $scope.outputVoltages[4],
             cv6: $scope.outputVoltages[5],
             cv7: $scope.outputVoltages[6],
-            cv8: $scope.outputVoltages[7],    
+            cv8: $scope.outputVoltages[7],
+            userid: factory.currentUserId,
         }
         
         factory.savePreset(presetObject);
         
+    }
+    
+    
+    $scope.presetsClicked = function () {
+        
+        factory.getPresets($scope.currentUserId);
+    
     }
 
         

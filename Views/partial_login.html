@@ -8,15 +8,17 @@
     <form>
         <div class="form-group">
             <label for="inputName">Username</label>
-            <input type="text" class="form-control" id="inputName" placeholder="Username">
+            <input type="text" class="form-control" id="inputName" placeholder="Username" ng-model="user">
         </div>
         <div class="form-group">
             <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="pass">
         </div>
         <button type="submit" class="btn btn-default" ng-click="loginClicked()">Login</button>
+        <button type="submit" class="btn btn-default" ng-click="registerClicked()">Register</button>
     </form>
    
+    <div> {{user}} {{pass}}</div>
    
     
 </form> 

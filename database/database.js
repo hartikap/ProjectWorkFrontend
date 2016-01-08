@@ -9,9 +9,8 @@ mongoose.connect('mongodb://localhost/27017/cvdb', function(err) {
 });
 
 var userSchema = new mongoose.Schema({
-  username: String,
+  username: {type:String, unique:true},
   password: String,
-  presets: [{type:mongoose.Schema.Types.ObjectId,ref:'Person'}],
 });
 
 var presetSchema = new mongoose.Schema({
@@ -24,6 +23,7 @@ var presetSchema = new mongoose.Schema({
     cv6: Number,
     cv7: Number,
     cv8: Number,
+    userid: {type:mongoose.Schema.ObjectId,ref:'userSchema'},
 });
 
 

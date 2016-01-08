@@ -8,7 +8,7 @@ var router = express.Router();
 
 
 // Router to get all presets for user
-router.get('/', function(req,res) {
+router.post('/getpresets', function(req,res) {
     
     query.getPresetsByUsername(req,res);
     
@@ -16,9 +16,9 @@ router.get('/', function(req,res) {
 
 
 // Router for preloading preset-objects for following routes (get, post, put, delete)
-router.param('preset', function(req, res, next, id) {
+router.param('preset', function(req, res, next) {
    
-    query.getOnePreset(req,res,id);
+    query.getOnePreset(req,res, next);
     
 });
 
@@ -29,10 +29,23 @@ router.get('/user/:preset', function(req,res) {
     
 });
 
+// Router for saving new preset
 router.post('/', function(req,res,next) {
+    console.log("post request for presets")
     query.saveNewPreset(req,res,next);
     
-})
+});
+
+
+
+// USERS-----------------------------------------------------
+
+// Router for saving new user
+router.post('/users/:username', function(req,res,next) {
+    query.saveNewUser(req,res,next);
+    
+});
+
 
 //router.put('')
 

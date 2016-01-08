@@ -4,6 +4,15 @@ main_module.factory('factory', function($resource, $http) {
     
     factory.presets = [];
     
+    factory.saveUser = function (userinfo) {
+        return $http.post('presets', userinfo).success(function(data){
+            factory.presets.push(data); //add the new preset to the list of current users presets
+            console.log("Tallennettu presetti: "+ data._id);
+            factory.currentUserId = data._id;
+        }); 
+        
+    }
+    
     
     
     factory.savePreset = function(preset) {
@@ -15,9 +24,9 @@ main_module.factory('factory', function($resource, $http) {
     
     
     // gets all presets for a certain user
-    factory.getPresets = function(user_id) {
-        return $http.get('presets', user_id).success(function(data){
-            
+    factory.getPresets = function(uid) {
+        return $http.post('presets/getpresets', {userid: uid}).success(function(data){
+            console.log(data);
             
         })
         

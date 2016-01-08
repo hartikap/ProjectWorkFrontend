@@ -19,7 +19,7 @@
 
 <form class="cv">
    
-    <div> Output voltage: {{outputVoltage}} </div>
+    <div> Current user: {{currentUserId}} </div>
   
     <br>
   
@@ -33,7 +33,16 @@
     </div>
     
 
-    <button type="submit" class="btn btn-default" ng-click="saveClicked()">Save presets</button>
+     <form>
+        <div class="form-group">
+            <label for="presetName">Preset name</label>
+            <input type="text" class="form-control" id="presetName" placeholder="Enter name for preset" ng-model="presetname">
+        </div>
+    
+         <button type="submit" class="btn btn-default" ng-click="saveClicked()">Save preset</button>
+    
+         <button type="submit" class="btn btn-default" ng-click="presetsClicked()">Load presets</button>
+    </form>
     
   
 </form>
