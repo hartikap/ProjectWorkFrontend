@@ -1,4 +1,4 @@
-// This is a router file for /user resource
+// This is a router file for /presets resource
 
 var query = require('./queries');
 
