@@ -14,8 +14,9 @@ main_module.controller('mainController', function($scope, $timeout, factory) {
     for (j=0; j<8; j++) { 
             $scope.outputVoltagesRaw[j]=0;
         }
-    
-    
+  
+
+  
     $scope.voltagesProgramMemory = new Array(8);
     for (j=0; j<8; j++) {  
         $scope.voltagesProgramMemory[j] = new Array(8);
@@ -200,7 +201,13 @@ main_module.controller('mainController', function($scope, $timeout, factory) {
     }
 
     $scope.presetsClicked = function () { 
-        factory.getPresets($scope.currentUserId);
+        factory.getPresets($scope.currentUserId).then(function(response){
+            console.log(response.data);
+            
+        }, function(response){
+            console.log("error"+response);
+            
+        });
     }
 
     
@@ -209,6 +216,10 @@ main_module.controller('mainController', function($scope, $timeout, factory) {
     $scope.voltagesLoadButtonClicked = function (ch) {
     
         console.log("Loaded: "+ ch);
+        $scope.settingLoaded = ch;
+        
+        //document.getElementById(knob+id).style.background-color = "#A3A3A3";
+        document.getElementById("btn1").style.color = "#A3A3A3";
         
         // Updates are inside timeout to prevent multiple simultaneous $apply-  
         // operations. "At any point in time there can be only one $digest or 
@@ -231,6 +242,8 @@ main_module.controller('mainController', function($scope, $timeout, factory) {
     // program memory (into $scope.voltagesProgramMemory[ch-1] -array). 
     // Voltages are not transferred into database with this function.
     $scope.voltagesSaveButtonClicked = function (ch) {
+        
+        $scope.settingLoaded = ch;
         
         if (ch == "Empty" || ch == undefined) {
             $scope.errorMessage = "Please select channel!";

@@ -35,12 +35,11 @@ main_module.factory('factory', function($resource, $http) {
     
     // gets all presets for a certain user
     factory.getPresets = function(uid) {
-        return $http.post('presets/getpresets', {userid: uid}).success(function(data){
-            console.log(data);
+        return $http.post('presets/getpresets', {userid: uid});
             
-        })
         
     }
+        
     
     return factory;
 })

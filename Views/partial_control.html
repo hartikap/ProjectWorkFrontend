@@ -29,12 +29,13 @@
         </tr>
     
     </table>
-    
-    
     <br>
+    <h4> Bank: {{settingLoaded}}</h4>
+    <button ng-click="voltagesSaveButtonClicked(settingLoaded)" class="basicWhite">Save to selected bank</button><br>
     
-    <h3> Load Voltages: </h3>
-    <div class="btn-toolbar" role="toolbar" aria-label="presetbar">
+    
+    <h3> Load Bank: </h3>
+    <div id = "btn1" class="btn-toolbar" role="toolbar" aria-label="presetbar">
         <button type="button" class="btn btn-info" ng-click="voltagesLoadButtonClicked(1)">1</button>
         <button type="button" class="btn btn-info" ng-click="voltagesLoadButtonClicked(2)">2</button>
         <button type="button" class="btn btn-info" ng-click="voltagesLoadButtonClicked(3)">3</button>
@@ -44,11 +45,26 @@
         <button type="button" class="btn btn-info" ng-click="voltagesLoadButtonClicked(7)">7</button>
         <button type="button" class="btn btn-info" ng-click="voltagesLoadButtonClicked(8)">8</button>
     </div>
+    <br>
     
     <br>
     
     
-     
+    
+    <h4> Quick-save to different bank: </h4>
+    <div class="btn-toolbar" role="toolbar" aria-label="presetbar">
+        <button type="button" class="btn btn-info" ng-click="voltagesSaveButtonClicked(1)">1</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesSaveButtonClicked(2)">2</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesSaveButtonClicked(3)">3</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesSaveButtonClicked(4)">4</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesSaveButtonClicked(5)">5</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesSaveButtonClicked(6)">6</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesSaveButtonClicked(7)">7</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesSaveButtonClicked(8)">8</button>
+    </div>
+    
+    
+     <!--
     <label for="singleSelect"> Save voltages: </label><br>
     
     <select name="singleSelect" id="singleSelect" ng-model="data.singleSelect">
@@ -65,7 +81,7 @@
     </select>
     <button ng-click="voltagesSaveButtonClicked(data.singleSelect)" class="basicWhite">Save</button><br>
     <tt>{{errorMessage}}</tt>
-    <br>
+    <br>-->
     
     
 </form>  
