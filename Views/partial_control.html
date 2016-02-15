@@ -33,21 +33,27 @@
     
     <br>
     
-    <h3> Load Preset: </h3>
+    <h3> Load Voltages: </h3>
     <div class="btn-toolbar" role="toolbar" aria-label="presetbar">
-        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(1)">1</button>
-        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(2)">2</button>
-        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(3)">3</button>
-        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(4)">4</button>
-        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(5)">5</button>
-        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(6)">6</button>
-        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(7)">7</button>
-        <button type="button" class="btn btn-info" ng-click="presetButtonClicked(8)">8</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesLoadButtonClicked(1)">1</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesLoadButtonClicked(2)">2</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesLoadButtonClicked(3)">3</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesLoadButtonClicked(4)">4</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesLoadButtonClicked(5)">5</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesLoadButtonClicked(6)">6</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesLoadButtonClicked(7)">7</button>
+        <button type="button" class="btn btn-info" ng-click="voltagesLoadButtonClicked(8)">8</button>
     </div>
     
     <br>
     
-    <select>
+    
+     
+    <label for="singleSelect"> Save voltages: </label><br>
+    
+    <select name="singleSelect" id="singleSelect" ng-model="data.singleSelect">
+      
+        <option value="Empty">---Select voltage bank---</option>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
@@ -57,7 +63,10 @@
         <option value="7">7</option>
         <option value="8">8</option>
     </select>
-    <button type="button" class="btn btn-info" ng-click="presetSaveButtonClicked(value)">Save</button>
+    <button ng-click="voltagesSaveButtonClicked(data.singleSelect)" class="basicWhite">Save</button><br>
+    <tt>{{errorMessage}}</tt>
+    <br>
+    
     
 </form>  
    
@@ -66,15 +75,13 @@
 
 <form class="cv">
    
+    <h3> Load voltage presets </h3>
+    
     <div> Current user: {{currentUserId}} </div>
   
     
-   
-    
-    
-    
 
-     <form>
+     
         <div class="form-group">
             <label for="presetName">Preset name</label>
             <input type="text" class="form-control" id="presetName" placeholder="Enter name for preset" ng-model="presetname">
@@ -83,7 +90,7 @@
          <button type="submit" class="btn btn-default" ng-click="saveClicked()">Save preset</button>
     
          <button type="submit" class="btn btn-default" ng-click="presetsClicked()">Load presets</button>
-    </form>
+    
     
   
 </form>

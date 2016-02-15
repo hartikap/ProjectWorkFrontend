@@ -15,14 +15,14 @@ var userSchema = new mongoose.Schema({
 
 var presetSchema = new mongoose.Schema({
     presetname: String,
-    cv1: Number,
-    cv2: Number,
-    cv3: Number,
-    cv4: Number,
-    cv5: Number,
-    cv6: Number,
-    cv7: Number,
-    cv8: Number,
+    cv1: Array,
+    cv2: Array,
+    cv3: Array,
+    cv4: Array,
+    cv5: Array,
+    cv6: Array,
+    cv7: Array,
+    cv8: Array,
     userid: {type:mongoose.Schema.ObjectId,ref:'userSchema'},
 });
 

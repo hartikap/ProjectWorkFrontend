@@ -30,7 +30,7 @@ exports.loginUser = function (req,res) {
             console.log(data);
             //=< 0 means wrong username or password
             if(data){
-                res.send(200,{status:"Ok"});
+                res.send(200,{status:"Ok", _id: data._id, dummy:"testing"});
             }
             else{
                 res.send(401,{status:"Wrong username or password"});
@@ -43,19 +43,37 @@ exports.loginUser = function (req,res) {
 }
 
 
-// This function saves a new preset
+// This function saves a new voltage-preset to the database.
 exports.saveNewPreset = function (req,res) {
-    
-    console.log(req.body);
 
-    
-    var preset = new db.presets(req.body);
-
-    preset.save(function(err, preset){
-        if(err){ return next(err); }
-
-    res.json(preset);
+    console.log("Searching for presetname in db: "+ req.body.presetname);
+    db.presets.find({presetname: req.body.presetname,
+                    userid: req.body.userid}, function (err, data) {
+        
+        if(data){
+            if (!data.length) // Executes when presetname for current user is not found
+            {
+                console.log("Presetname not found, saving new preset for userid " +
+                           req.body.userid);
+                var preset = new db.presets(req.body);
+                 preset.save(function(err, preset){
+                     if(err){ return next(err); }
+                     res.json(preset);
+                 });    
+            }
+            else {
+                console.log("Presetname used!");
+                res.send(409,{status:"Presetname used!"});
+            } 
+            
+        }
+        if(err){
+                res.send(500,{status:err.message});
+        }
+        
     });
+    /*
+    */
     
 };
 

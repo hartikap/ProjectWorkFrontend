@@ -24,10 +24,12 @@ main_module.factory('factory', function($resource, $http) {
     
     
     factory.savePreset = function(preset) {
+        
+        
         return $http.post('presets', preset).success(function(data){
-            factory.presets.push(data); //add the new preset to the list of current users presets
+            //factory.presets.push(data); //add the new preset to the list of current users presets
             console.log("Tallennettu presetti: "+ data);
-        });  
+        }); 
     };
     
     

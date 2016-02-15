@@ -3,11 +3,11 @@
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 50px;
-    border: 3px solid #120044;
+    border: 3px solid #1A2026;
     border-radius: 3px;
     padding: 50px;
     text-align: center;
-    background-color: #846BC8;
+    background-color: #4E575F;
 
 }
 
@@ -16,26 +16,62 @@
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 50px;
-    border: 3px solid #120044;
+    border: 3px solid #1A2026;
     border-radius: 3px;
     padding: 50px;
     align-items: center;
     text-align: center;
-    background-color: #846BC8;
+    background-color: #4E575F;
 
 }
 
+#singleSelect {
+    color: #343B41;
 
+}
+
+.centeredSet {
+    align-content: center;
+    text-align: center;
+}
+
+.btn-info {
+    background-color: #343B41;
+    color: #F6F6F6;
+    border: 0 none;
+}
+
+
+.basicWhite {
+    color: #343B41;
+}
 
 .cv {
-    margin-left:20px;
-    width: 400px;
+    width: 550px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 50px;
+    border: 3px solid #1A2026;
+    border-radius: 3px;
+    padding: 50px;
+    align-items: center;
+    text-align: center;
+    background-color: #4E575F;
 }
 
 
+.form-control {
+    background-color: #343B41;
+    color: #F6F6F6;
+    width: 200px;
+    align-items: center;
+    text-align: center;
+    
+}
+
 .cvmoduleview {
-    background-color: #3A08C4;
-    color: #C7BDE5;
+    background-color: #343B41;
+    color: #F6F6F6;
     font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
     
 }
@@ -47,15 +83,10 @@
     
 }
 
-.form-control {
-    background-color:#95849C;
-    
-    
-}
 
 .knobjs-bg {fill: rgba(0,0,0,0);}
-.knobjs-arcbg {fill: rgba(0,0,0,0); stroke-width:0.1; stroke: #C7BDE5;}
-.knobjs-arc {fill:#120044;}
+.knobjs-arcbg {fill: rgba(0,0,0,0); stroke-width:0.1; stroke: #6B747C;}
+.knobjs-arc {fill:#1A2026;}
 
 x-knobjs-knob {
   display: inline-block;

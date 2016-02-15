@@ -8,8 +8,10 @@ main_module.controller('loginController', function($scope, factory, $location, F
         }
         
         factory.loginUser(userinfo)
-            .then(function(data){
-                factory.currentUserId = data._id;
+            .then(function(response){
+                factory.currentUserId = response.data._id;
+
+                console.log("userid from database: "+response.data._id);
             $location.path('/control');
             }, function(data){
                 Flash.create('danger', 'Wrong user name or password given', 'custom-class'); 
